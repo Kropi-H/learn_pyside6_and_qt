@@ -60,3 +60,24 @@ app.exec()
 
 # Loops stopped
 """
+
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QSlider
+
+# The sys module is responsible for processing command line arguments
+import sys
+
+def respond_to_slider(data):
+  print("Slider move to: ", data)
+
+app = QApplication()
+slider = QSlider(Qt.Horizontal)
+slider.setMinimum(1)
+slider.setMaximum(100)
+slider.setValue(25)
+
+
+slider.valueChanged.connect(respond_to_slider)
+slider.show()
+
+app.exec()
